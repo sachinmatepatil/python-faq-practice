@@ -1,0 +1,39 @@
+1. 𝗦𝘁𝗿𝗶𝗻𝗴 𝗠𝗮𝗻𝗶𝗽𝘂𝗹𝗮𝘁𝗶𝗼𝗻
+-Reverse a string without using StringBuilder.reverse()
+-Check if two strings are anagrams
+-Find the first non-repeating character in a string
+-Count vowels and consonants in a string
+-Remove all duplicate characters from a string
+-Find if a string has all unique characters
+-Implement basic string compression (e.g. "aabcccccaaa" → "a2b1c5a3")
+
+2. 𝗔𝗿𝗿𝗮𝘆 / 𝗟𝗶𝘀𝘁 𝗣𝗿𝗼𝗯𝗹𝗲𝗺𝘀
+-Find the second largest number in an array
+-Move all zeros to the end of an array
+-Rotate an array by k positions (right and left)
+-Merge two sorted arrays without extra space
+-Find missing number from 1 to N
+-Find intersection of two arrays
+-Find subarray with maximum sum (Kadane’s algorithm)
+-Find duplicates in an array
+
+3. 𝗠𝗮𝗽 / 𝗛𝗮𝘀𝗵𝗠𝗮𝗽 
+-Find the first non-repeated element in an array
+-Count frequency of each element
+-Find pairs with given sum
+-Group words that are anagrams
+-Find the most frequent element in an array
+
+4. 𝗟𝗶𝗻𝗸𝗲𝗱𝗟𝗶𝘀𝘁 𝗣𝗿𝗼𝗯𝗹𝗲𝗺𝘀 (𝗔𝘀𝗸𝗲𝗱 𝗶𝗻 𝗙𝗔𝗔𝗡𝗚 𝗶𝗻𝘁𝗲𝗿𝘃𝗶𝗲𝘄𝘀 𝘁𝗼𝗼)
+-Detect a cycle in a linked list (Fast/Slow pointer)
+-Find the middle element of a linked list
+-Reverse a linked list
+-Merge two sorted linked lists
+
+5. 𝗣𝗮𝘁𝘁𝗲𝗿𝗻-𝗢𝗿𝗶𝗲𝗻𝘁𝗲𝗱 𝗣𝗿𝗼𝗯𝗹𝗲𝗺𝘀 (𝗗𝗦𝗔 𝗣𝗮𝘁𝘁𝗲𝗿𝗻𝘀)
+
+✅ Sliding Window: Longest substring without repeating characters
+✅ Two Pointers: Check if array is palindrome, remove duplicates from sorted array
+✅ Binary Search: Search in rotated sorted array
+✅ Greedy: Minimum coins for a given value
+✅ Backtracking: Generate subsets of a set
