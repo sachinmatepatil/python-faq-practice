@@ -9,7 +9,13 @@ class Booking:
     def __init__(self, firstname, lastname, totalprice, depositpaid, checkin, checkout):
         self.firstname = firstname
         self.lastname = lastname
+
+        #Validate price to be non-negative
+        if totalprice <= 0:
+            get_logger().info("Total price must be postitive")
+            raise Exception("Total price must be greater than zero")
         self.totalprice = totalprice
+
         self.depositpaid = depositpaid
         self.checkin = checkin
         self.checkout = checkout
@@ -20,6 +26,14 @@ class Booking:
         """
         return self.totalprice + (self.totalprice * (tax_rate / 100))
         get_logger().info(f"Calculate todal tax with total price {self.totalprice} and tax rate {tax_rate}%")
+
+    def apply_discount(self, percent):
+        if percent <= 0 or percent > 100:
+            get_logger().info("Percent must be between 0 and 100")
+            raise Exception("Percent must be between 0 and 100")
+        discount_amount = self.totalprice * (percent / 100)
+        self.totalprice = self.totalprice - discount_amount
+        return self.totalprice
 
     def validate_dates(self):
         """
@@ -34,6 +48,18 @@ class Booking:
             get_logger().info("Date validation failed")
             raise Exception(f"Invalid dates: checkout {self.checkout} is earlier than checkin {self.checkin}")
             get_logger().info("Date validation passed")
+
+    def get_duration(self):
+        """
+        Number of days between checkin and checkout.
+        Example: 2025-01-10 -> 2025-01-15 = 5 days
+        :return:
+        """
+        fmt = "%Y-%m-%d"
+        checkin_dt = datetime.strptime(self.checkin,fmt) # line turns text string date into a real date.
+        checkout_dt = datetime.strptime(self.checkout,fmt)
+        duration = (checkout_dt - checkin_dt).days
+        return duration
 
     def get_summary(self):
         return (
@@ -57,6 +83,8 @@ bookings = [b1, b2]
 # Valid bookings
 for b in bookings:
     b.validate_dates()
+    print(b.apply_discount(10))
+    print(b.get_duration())
     print(b.get_summary())
     print("Total with 10% tax:", b.calculate_total_with_tax(10))
     print("-" * 40)
