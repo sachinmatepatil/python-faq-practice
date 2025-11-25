@@ -1,11 +1,14 @@
 # Problem: Given an array and a target,
 # return indices of two numbers that add up to the target.
 
-# Given an array of integers nums and an integer target,
-# return indices of the two numbers such that they add up to target.
-
 nums = [2,3,7,11,15]
 target = 13
+
+for i in nums:
+    for j in nums:
+        if i+j == target and i!=j:
+            print(nums.index(i),nums.index(j))
+            break
 
 #Method 1: using for loop - This is two loops, O(n²). Works—but slow.
 # for i in nums:
