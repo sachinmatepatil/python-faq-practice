@@ -6,7 +6,7 @@ def get_logger():
         level=logging.INFO,
         format="%(asctime)s - %(levelname)s - %(message)s",
         handlers=[
-            logging.FileHandler('framework.log'),  # Save logs to file
+            logging.FileHandler('../framework.log'),  # Save logs to file
             logging.StreamHandler()  # Print logs on console
         ]
     )
