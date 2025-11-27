@@ -191,3 +191,55 @@ print(group_anagram(words))  #Output: [['eat', 'tea', 'ate'], ['tan', 'nat'], ['
 #   ["bat"]
 # ]
 #
+#
+# 🟦 Group Anagrams – Time Complexity
+#
+# Let:
+#
+# n = number of words
+#
+# k = max length of each word
+#
+# 🟦 Approach Used → Sorting Each Word
+# key = "".join(sorted(word))
+#
+#
+# Sorting each word takes:
+#
+# O(k log k)
+#
+#
+# We do this for every word, so total:
+#
+# O(n * k log k)
+#
+#
+# This is the standard time complexity accepted in interviews.
+#
+# 🟦 Explained Like a Kid
+#
+# You sort each word’s letters.
+# Sorting takes time depending on the number of letters (k log k).
+#
+# You do this for every word (n words) →
+# so n times sorting cost →
+# → n × (k log k).
+#
+# 🟦 Dictionary Insertions?
+#
+# Dictionary insert is O(1) average.
+#
+# So the main time cost is sorting.
+#
+# 🟦 FINAL ANSWER (Interview Line)
+# Time Complexity: O(n * k log k)
+#
+# sorting each of n words of length k → O(k log k)
+#
+# total → O(n k log k)
+#
+# Space Complexity: O(n * k)
+#
+# storing all words in grouped lists
+#
+# dictionary keys also take space
