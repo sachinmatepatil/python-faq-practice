@@ -49,3 +49,12 @@ def is_anagram(s1, s2):
 s1 = "listen"
 s2 = "silent"
 print(is_anagram(s1, s2))  # Output: True
+
+
+n = [1,2,4,5,6]
+
+def m_n(n):
+    for i in range(1, len(n)+1):
+        if i not in n:
+            return i
+print(m_n(n))

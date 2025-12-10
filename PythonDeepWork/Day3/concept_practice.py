@@ -129,3 +129,16 @@ print(dict)
 #Dict comprehension
 len_dict ={ name: len(name) for name in names}
 print(len_dict)
+
+
+def count_character(s):
+    dict = {}
+    for i in s:
+        if i in dict:
+            dict[i] += 1
+        else:
+            dict[i] = 1
+    return dict
+
+s='sachin'
+print(count_character(s))
