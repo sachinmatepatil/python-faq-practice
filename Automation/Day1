@@ -1,0 +1,237 @@
+** Locators **
+
+1. Cypress locators
+
+Cypress Default Selector Priority from there website
+data-cy
+data-test
+data-testid
+data-qa
+name
+id
+class
+tag
+attributes
+nth-child
+
+
+✔️ Recommended order of cypress locators as follows:
+1 data-testid
+2 id
+3 class
+4 contains()
+5 CSS attribute selectors
+
+⭐️ using data-testid
+cy.get('[data-testid="submit-button"]')
+Why Best?
+- Stable
+- Does not break with UI changes
+- Fast
+- clear intention
+
+⭐️ using id
+cy.get('#username')
+Why Good?
+- Unique
+- Fast
+- stable until the developer make any changes
+
+⭐️using class
+cy.get('.nav-bar')
+Why Acceptable?
+- Can be unique
+- May change with UI changes
+- Fast
+- Avoid it if class name changes frequently
+
+⭐️ using contains()
+cy.contains('Submit')
+Why Acceptable?
+- Human readable
+- May break with UI text changes
+- Slower than other locators
+
+⭐️ using CSS attribute selectors
+cy.get('input[type="text"]')
+Why Acceptable?
+- Flexible
+- May break with attribute changes
+- Moderate speed
+
+What to AVOID in Cypress
+
+❌ Long CSS chains
+❌ UI-style related class names (.mt-4 .flex-center)
+❌ XPath (Cypress doesn’t support by default)
+❌ Text-only selectors (unless intentional)
+
+INTERVIEW ANSWER (Use THIS Version — Salesforce Level)
+
+“In Cypress, I follow the official selector priority:
+data-cy, data-test, data-testid, data-qa, name, id, class, tag, and attribute selectors.
+My first preference is always test IDs because they are stable and independent of UI layout.
+I avoid brittle selectors like nth-child or styling classes, and I rely on semantic attributes wherever possible.”
+
+This answer is PERFECT — short, authoritative, senior-level.
+
+⭐ BONUS: Why Cypress recommends test IDs?
+
+You can add:
+
+“Test IDs ensure selectors remain stable even if UI layout or styling changes.
+They reduce flakiness and increase maintainability of UI tests.”
+
+
+Now Playwright (LIGHT KNOWLEDGE)
+
+Salesforce LOVES Playwright syntax because it uses semantic locators.
+
+You only need these:
+
+🟩 2. PLAYWRIGHT LOCATORS (LIGHT)
+⭐ A. getByRole()
+
+MOST RECOMMENDED — stable & semantic.
+
+page.get_by_role("button", name="Login")
+page.get_by_role("textbox", name="Email")
+
+
+Why?
+
+Uses ARIA roles- ARIA give semantic meaning to elements, allows screen readers to present and support interaction with object
+
+Less flaky
+
+Very readable
+
+⭐ B. getByText()
+page.get_by_text("Submit")
+
+
+Useful when role isn’t available.
+
+⭐ C. getByPlaceholder()
+page.get_by_placeholder("Enter email")
+
+
+Very clean for input fields.
+
+⭐ D. getByTestId() (BEST)
+page.get_by_test_id("login-btn")
+
+
+Similar to Cypress data-testid.
+
+⭐ E. locator()
+page.locator("#username")
+page.locator(".btn-primary")
+
+
+Equivalent to Cypress cy.get().
+
+🟥 What to AVOID in Playwright
+
+❌ Long chained XPath
+❌ Text locators for dynamic text
+❌ Selectors tied to styling
+
+⭐ Q: What locators do you prefer and why?
+
+Your final polished answer:
+
+“For UI automation, I prefer stable and intention-revealing locators.
+My first choice is always data-testid because it is reliable and independent of UI layout.
+In Cypress I use cy.get('[data-testid=...]'), and in Playwright I prefer semantic locators such as getByRole, getByText, and getByPlaceholder.
+
+If semantic or test IDs are not available, I fall back to clean CSS selectors.
+I avoid brittle XPath or long chained selectors because they break easily and cause flakiness.”
+
+This is PERFECT for senior-level automation interviews.
+
+⭐ Q: Why avoid XPath?
+
+“XPath tends to be brittle, hard to maintain, and slow.
+In modern frameworks like Playwright and Cypress, CSS or role-based locators are more stable and readable.”
+
+⭐ Q: How do you reduce locator flakiness?
+
+“By using test IDs, semantic roles, and avoiding dynamic attributes.
+I also ensure the element is visible and ready before interacting with it.”
+
+INTERVIEW ANSWER (Use THIS Version — Salesforce Level)
+
+“In Cypress, I follow the official selector priority:
+data-cy, data-test, data-testid, data-qa, name, id, class, tag, and attribute selectors.
+My first preference is always test IDs because they are stable and independent of UI layout.
+I avoid brittle selectors like nth-child or styling classes, and I rely on semantic attributes wherever possible.”
+
+This answer is PERFECT — short, authoritative, senior-level.
+
+⭐ BONUS: Why Cypress recommends test IDs?
+
+You can add:
+
+“Test IDs ensure selectors remain stable even if UI layout or styling changes.
+They reduce flakiness and increase maintainability of UI tests.”
+
+========================================================
+========================================================
+*** Assertions ***
+2. ASSERTIONS — Senior QA Basics (Day-1 Level)
+
+I will give you the exact answer Salesforce expects:
+
+⭐ What assertions do you use in UI/API automation?
+
+“For API tests, I assert status code, response body, headers, and JSON schema.
+For UI tests, I assert visibility, text, value, attributes, element count, and navigation.
+My focus is on meaningful assertions that validate business behavior rather than UI appearance.”
+
+#Cypress Assertions Examples
+
+cy.get('username').should('be.visible')
+cy.contains('Welcome Sachin').should('exist')
+cy.get('.count').should('have.text', '5')
+
+#Python API assertions
+
+assert response.status_code == 200
+assert response.json()['name'] == 'Sachin'
+assert 'application/json' in response.headers['Content-Type']
+
+🟩 3. BASIC API TEST STRATEGY (Day-1 Level)
+
+This is the interview-ready summary:
+
+“For API testing I cover positive, negative, boundary and authentication scenarios.
+I validate response code, body, schema, required fields, error messages, and response time.
+I also verify how the API behaves with invalid payloads, missing headers, or expired tokens.”
+
+That’s all they expect for Day-1.
+
+🟩 4. HANDLING FLAKINESS (Day-1 Level)
+
+Your answer:
+
+“For UI flakiness, I avoid sleeps and rely on smart waits like checks for visibility, network idle, or element readiness.
+I also use stable locators, retry logic, and isolate test data to avoid inter-test dependency.”
+
+#API Test Example in Python using pytest
+def test_get_user(api_client):
+    response = api_client.get("/user/123")
+    assert response.status_code == 200
+    assert response.json()['id'] == 123
+
+#Cypress UI Test Example
+
+cy.visit('/login')
+cy.get('#username').type('testuser')
+cy.get('#password').type('password')
+cy.get('[data-testid="submit-button"]').click()
+cy.url().should(contain, '/home')
+
+========================================================
+========================================================
+
