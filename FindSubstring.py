@@ -15,3 +15,16 @@ if s.find(sub_s)==-1:
     print('not found')
 else:
     print('found')
+
+s = 'welcome to python programming'
+v = 'python'
+def find_sub(s, v):
+    words = s.split()
+
+    for word in words:
+        if word == v:
+            return True
+    return False
+
+
+print(find_sub(s, v))

@@ -39,3 +39,30 @@
 # Compare characters until the pointers meet or cross.
 
 
+# def is_palindrome(s):
+#     # List comprehension to keep only alphanumeric, then join
+#     clean_s = ''.join(ch for ch in s if ch.isalnum()).lower()
+#
+#     return clean_s == clean_s[::-1]
+#
+#
+# s = "A man, a plan, a canal: Panama"
+# print(is_palindrome(s))
+
+
+def is_pal(s):
+    new_str = s.lower().replace(' ', '')
+
+    left = 0
+    right = len(s) - 1
+
+    while left < right:
+        if new_str[left] != new_str[right]:
+            return False
+        left += 1
+        right -= 1
+    return True
+
+
+s = 'madams'
+print(is_pal(s))

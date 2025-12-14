@@ -15,3 +15,11 @@ if(number in lst):
     print('found')
 else:
     print('not found')
+
+# def search_element(n):
+#     for i in range(len(lst)):
+#         if i==n:
+#             return True
+#     return False
+
+# print(search_element(n))
