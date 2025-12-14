@@ -11,3 +11,15 @@ print(minn)
 lst.sort()
 print(lst)
 print(lst[0],lst[-1])
+
+
+def lar_num(lst):
+    lar_num = 0
+
+    for i in range(len(lst)):
+        if lst[i] > lar_num:
+            lar_num = lst[i]
+    return lar_num
+
+
+print(lar_num(lst))
