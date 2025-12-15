@@ -38,26 +38,41 @@ print(int_nums)
 
 #Method 2:
 
-x=sorted(map(int, list))
-print(x)
+# x=sorted(map(int, list))
+# print(x)
 
 
 #Conver string number to interger and sort it based on the minutes place
+#
+# list = ["10:20","9:12","11:23","12:56:","09:14"]
+#
+# # x=list[0].split(':')
+# new_list = []
+# for num in list:
+#     a = num.split(':')
+#     new_list.append(a)
 
-list = ["10:20","9:12","11:23","12:56:","09:14"]
 
-# x=list[0].split(':')
-new_list = []
-for num in list:
-    a = num.split(':')
-    new_list.append(a)
+#Program to change uppercase to lowercase and vice versa
+s = 'Sachin Mate Patil'
+
+def strUpdate(s):
+    for c in s:
+        if c.isupper():
+            s = s.replace(c, c.lower())
+        elif c.islower():
+            s = s.replace(c, c.upper())
+    return s
+
+print(strUpdate(s))
 
 
 
-# int_nums = [int(num) for num in new_list]
-# print(int_nums)
-print(new_list)
-# kl = sorted(map(int,new_list))
-# print(kl)
-new_list.sort(key=lambda x:x[1] )
-print(new_list)
+
+# # int_nums = [int(num) for num in new_list]
+# # print(int_nums)
+# print(new_list)
+# # kl = sorted(map(int,new_list))
+# # print(kl)
+# new_list.sort(key=lambda x:x[1] )
+# print(new_list)
