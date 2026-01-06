@@ -1,4 +1,4 @@
-logs = [
+ilogs = [
     {"event": "login", "user": "A"},
     {"event": "click", "user": "A"},
     {"event": "login", "user": "B"},

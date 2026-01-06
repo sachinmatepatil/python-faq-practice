@@ -15,6 +15,7 @@ output = 9(subarray = [5,1,3])
 
 def max_sum_arr(arr,k):
     window_sum = sum(arr[:k])
+    print(window_sum)
     max_sum = window_sum
 
     for i in range(k,len(arr)):
@@ -45,22 +46,22 @@ Use this when :
 
 #Longest Substring Without Repeating Characters
 
-def longest_substring(s):
-    seen = {}
-    left = 0
-    long_sub = 0
-
-    for right in range(len(s)):
-        ch = s[right]
-
-        if ch in seen and seen[ch] >=left:
-            left = seen[ch] + 1
-        seen[ch] = right
-
-        long_sub = max(long_sub, right - left + 1)
-    return long_sub
-
-print(longest_substring("abcasdfsdabcbb"))
+# def longest_substring(s):
+#     seen = {}
+#     left = 0
+#     long_sub = 0
+#
+#     for right in range(len(s)):
+#         ch = s[right]
+#
+#         if ch in seen and seen[ch] >=left:#character might have appeared before the current window, which is NOT a problem.
+#             left = seen[ch] + 1
+#         seen[ch] = right
+#
+#         long_sub = max(long_sub, right - left + 1)
+#     return long_sub
+#
+# print(longest_substring("abcasdfsdabcbb"))
 
 '''I use a sliding window that expands with the right pointer.
 When a duplicate character appears inside the window, I move the left pointer to one position after its last occurrence to maintain a valid window.
@@ -101,25 +102,25 @@ subarrays must NOT overlap
 
 Example:'''
 
-def max_valid_subarrays(arr, minLen, threshold):
-    curr_window_sum = 0
-    left = 0
-    count = 0
-
-    for right in range(len(arr)):
-        curr_window_sum+=arr[right]
-
-        if (right - left+1) >=minLen and curr_window_sum >= threshold:
-            count +=1
-            left = right + 1
-            curr_window_sum = 0
-
-    return count
-
-arr = [5, 3, 2, 5, 3, 2, 4]
-minLen = 2
-threshold = 7
-print(max_valid_subarrays(arr, minLen, threshold))
+# def max_valid_subarrays(arr, minLen, threshold):
+#     curr_window_sum = 0
+#     left = 0
+#     count = 0
+#
+#     for right in range(len(arr)):
+#         curr_window_sum+=arr[right]
+#
+#         if (right - left+1) >=minLen and curr_window_sum >= threshold:
+#             count +=1
+#             left = right + 1
+#             curr_window_sum = 0
+#
+#     return count
+#
+# arr = [5, 3, 2, 5, 3, 2, 4]
+# minLen = 2
+# threshold = 7
+# print(max_valid_subarrays(arr, minLen, threshold))
 
 '''Since subarrays must not overlap, I use a greedy sliding window.
 The moment the window satisfies the length and sum conditions, I count it and reset the window to maximize the number of valid subarrays.'''
