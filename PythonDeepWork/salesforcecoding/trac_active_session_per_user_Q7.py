@@ -17,10 +17,12 @@ def active_session_per_user(logs):
     for log in logs:
         user = log['user']
         event = log['event']
+        if user not in last_active_session:
+            last_active_session[user] = 0
         if event == 'login':
             last_active_session[user] += 1
         elif event == 'logout':
-            last_active_session -= 1
+            last_active_session[user] -= 1
     return last_active_session
 
 
