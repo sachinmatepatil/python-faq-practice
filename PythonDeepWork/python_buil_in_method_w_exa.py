@@ -107,10 +107,63 @@ x = 10
 print(id(x))
 
 # help()/dir() - introspection
-print(help(list))
-print(dir(dict))
+# print(help(list))
+# print(dir(dict))
 
 # more example of:
 # enumerate
 # all
 # any
+
+#String methods
+# lower() / upper()
+s = "sachin"
+print(s.upper())
+
+"MATE".lower()
+
+# strip() - remove whitespace
+s = "   hello world   "
+print((s.strip()))
+
+# lstrip() - remove characters from left
+s = "   hello...."
+print(s.lstrip())
+
+# rstrip() - remove characters from right
+s = ".....hello     "
+print((s.rstrip()))
+
+# split() - split string into list
+print("sachin, subhash, mate".split(","))
+
+s = 'sachin subash mate'
+print(s.split())  # error
+
+# join() - join list into string
+names = ['sachin', 'aditi']
+print(" ".join(names))
+
+#replace() - replace substring
+s = "sachin mate"
+print(s.replace("mate", "aditi"))
+
+#startswith() / endswith() - check prefix/suffix
+s = "sachin mate"
+print(s.startswith("sachin"))
+print(s.endswith("aditi"))
+
+
+# find() - find substring index
+s = "sachin mate"
+print(s.find("m"))
+print(s.index("m"))
+# note: find returns -1 if not found, index raises error
+# 👉 Interview favorite:
+# 	•	find() → safe (returns -1)
+# 	•	index() → strict (throws error)
+
+# count() - count occurrences
+s = "sachin mate sachin"
+print(s.count("i"))
+
