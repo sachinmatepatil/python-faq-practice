@@ -167,3 +167,40 @@ print(s.index("m"))
 s = "sachin mate sachin"
 print(s.count("i"))
 
+# isdigit() / isalpha() - check character type
+s = '12345'
+print(s.isdigit())
+s = 'sachin'
+print(s.isalpha())
+
+# isalnum() - check alphanumeric
+s = 'sachin123'
+print(s.isalnum())
+
+# capitalize() - capitalize first letter
+s = "sachin mate"
+print(s.capitalize())
+
+# title() - capitalize first letter of each word
+s = "sachin mate"
+print(s.title())
+
+# splitlines() - split by lines
+s = "sachin\nmate"
+print(s.splitlines())
+
+# f-strings - formatted string literals
+name = "sachin"
+age = 30
+print(f"My name is {name} and I am {age} years old.")
+
+# format() - string formatting
+name = "sachin"
+age = 30
+print(("My name is {} and I am {} years old.".format(name, age)))
+
+# len() - length of string
+s = "sachin"
+print(len(s))
+
+
