@@ -15,10 +15,10 @@ t = -2
 
 
 def pair_with_sum(arr, t):
-    seen = set()
+    seen = set() # Initialize an empty set to store seen numbers
 
     for num in arr:
-        if t - num in seen:
+        if t - num in seen: # Check if the complement (t - num) exists in the set
             return True
         seen.add(num)
     return False
