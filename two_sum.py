@@ -34,7 +34,7 @@ def two_sum(nums, target):
     return None
 
 print(two_sum(nums, target))
-
+#time complexity O(n) space O(n)
 
 #What enumerate does
 #
