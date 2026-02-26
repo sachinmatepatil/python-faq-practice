@@ -17,7 +17,23 @@ def permutation(s):
     backtrack(s, "")
     return result
 
-s='abcd'
+s='ab'
 print(permutation(s))
 
+#Time complexity: O(n * n) #As we explore all possibilities
+#Space complexity: O(n!) #as storing all permutations
+
+#Method 2 : without using recursion and backtracking
+
+def permutation_2(s):
+    perms = [""]
+
+    for ch in s:
+        new_perms = []
+        for p in perms:
+            for i in range(len(p) + 1):
+                new_perms.append(p[:i] + ch + p[i:])
+        perms = new_perms
+    return perms
+print(permutation_2(s))
 
