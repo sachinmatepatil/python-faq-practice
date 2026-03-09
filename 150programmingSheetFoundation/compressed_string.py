@@ -14,7 +14,7 @@ def compressed_string(s):
             count+=1
         else:
             result += s[i-1] + str(count)
-            count = 0
+            count = 1
     return result
 
 print(compressed_string(s))
