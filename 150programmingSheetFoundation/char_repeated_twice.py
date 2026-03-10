@@ -1,6 +1,6 @@
 # Repeated Characters: Write a program to print characters that are repeated exactly twice in a string.
 
-#Method 1
+#Method 1 - first character that is repeated twice
 def two_times_repeated_characters(input_string):
     freq = {}
 
@@ -17,15 +17,17 @@ def two_times_repeated_characters(input_string):
 input_string = "programming"
 print(two_times_repeated_characters(input_string))
 
-#Method 2
+#Method 2 - all characters that are repeated twice
 def method2(input_string):
     freq = {}
     for ch in input_string:
         freq[ch] = freq.get(ch, 0) + 1
 
+    result = []
     for ch,count in freq.items():
         if count == 2:
-            return ch
+            result.append(ch)
+    return result
 
 input_string = "programming"
 print(method2(input_string))
