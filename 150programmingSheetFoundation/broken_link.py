@@ -2,8 +2,8 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 import requests
 
-driver = webdriver.Chrome()
-driver.get("https://google.com")
+driver = webdriver.Chrome() #starts chrome browser
+driver.get("https://google.com") #loads the webpage
 
 links = driver.find_elements(By.TAG_NAME,"a")
 
@@ -46,4 +46,17 @@ response = requests.head(url, timeout=5)
 
 I collect all anchor tags using Selenium, extract the href attribute, skip JavaScript and mailto links, then send HTTP requests using the requests library and 
 identify broken links based on status codes greater than or equal to 400.
+'''
+
+'''
+WHAT
+	•	webdriver → opens browser
+	•	By → helps locate elements
+	•	requests → sends HTTP requests
+
+WHY
+	•	Selenium → get UI elements (links)
+	•	Requests → validate links via API call
+
+👉 Selenium alone cannot tell if link is broken.
 '''
