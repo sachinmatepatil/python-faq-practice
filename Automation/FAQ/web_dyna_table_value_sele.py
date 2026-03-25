@@ -34,7 +34,7 @@ def perform_action(driver, search_value, action):
             if action.lower() == "edit":
                 row.find_element(By.XPATH, "//*[@id='edit-record-1']").click()
             elif action.lower() == "delete":
-                row.find_element(By.XPATH, "//*[@id='edit-record-1']").click()
+                row.find_element(By.XPATH, "//*[@id='delete-record-1']").click()
             return True
     return False
 # Time Complexity - O(n) → scans rows once
