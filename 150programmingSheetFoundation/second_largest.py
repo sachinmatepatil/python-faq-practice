@@ -9,16 +9,16 @@ Output:
 45
 '''
 
-#Method 1: using in built sort and slicing
-def second_largest(arr):
-    if len(arr)<2:
-        return None
-    sorted_arr = sorted(arr)
-    return sorted_arr[-2]
-
-#example usage
-arr = [10, 20, 4, 45, 99]
-print(second_largest(arr))
+# #Method 1: using in built sort and slicing
+# def second_largest(arr):
+#     if len(arr)<2:
+#         return None
+#     sorted_arr = sorted(arr)
+#     return sorted_arr[-2]
+#
+# #example usage
+# arr = [10, 20, 4, 45, 99]
+# print(second_largest(arr))
 
 #Method 2: using a single pass
 
@@ -44,7 +44,7 @@ def second_largest(arr):
 arr = [10, 20, 4, 45, 99,896]
 print(second_largest(arr))
 
-'''
+'''a
 ⏱ Complexity
 	•	Time Complexity: O(n)
 	•	Space Complexity: O(1)
