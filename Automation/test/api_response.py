@@ -10,7 +10,8 @@ def base_url():
 @pytest.mark.smoke
 def test_api_response(base_url):
     response = requests.get(base_url)
-    assert response.status_code == 201
+    assert response.status_code == 200
+    assert response.elapsed.total_seconds() < 0.1
 
 
 @pytest.mark.parametrize("id, expected_email", [(1,"Sincere@april.biz"),(2,"Shanna@melissa.tv")])
@@ -42,4 +43,14 @@ def test_creation(base_url):
     assert response.status_code == 201
     assert response.json()["title"] == payload["title"]
 
+@pytest.mark.parametrize("id",[1,2,3])
+def test_validate_user(base_url,id):
+    response = requests.get(f"{base_url}/users/{id}")
+    assert response.status_code == 200
 
+    data = response.json()
+
+    assert data["id"] == id
+    assert "email" in data
+
+    assert response.elapsed.total_seconds() < 2
