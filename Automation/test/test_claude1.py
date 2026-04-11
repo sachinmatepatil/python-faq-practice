@@ -6,7 +6,7 @@
 import requests
 import pytest
 
-@pytest.fixture(scope="function")
+@pytest.fixture()
 def base_url():
     return "https://jsonplaceholder.typicode.com/"
 
