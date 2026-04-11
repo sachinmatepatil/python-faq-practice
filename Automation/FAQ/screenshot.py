@@ -45,3 +45,20 @@ driver.get('https://demoqa.com/')
 time_stamp = time.time()
 driver.save_screenshot((f"screenshot_{time_stamp}.png"))
 driver.quit()
+
+'''
+⏱ Complexity
+	•	Time: O(1)
+	•	Space: depends on image size
+	
+	I use driver.save_screenshot() to capture the browser state. For better debugging, I also capture element-level screenshots and attach them on test failure using pytest.
+'''
+
+
+'''
+Say this in interview:
+	•	“I integrate screenshots with Allure reports”
+	•	“I capture screenshots on failure automatically”
+	•	“I use element-level screenshots for better debugging”
+
+'''
