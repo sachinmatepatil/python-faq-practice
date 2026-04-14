@@ -2,23 +2,24 @@ import requests
 import pytest
 from jsonschema import validate, ValidationError
 
-BASE_URL = "https://reqres.in/api"
+@pytest.fixture(scope="module")
+def base_url():
+    return "https://api.escuelajs.co/api"
 
 CREATE_USER_SCHEMA = {
     "type": "object",
-    "required": ["name", "job", "id", "createdAt"],
+    "required": ["name", "email", "password", "avatar"],
     "properties": {
         "name":      {"type": "string"},
-        "job":       {"type": "string"},
-        "id":        {"type": "string"},
-        "createdAt": {"type": "string"}
-    },
-    "additionalProperties": False
+        "email":       {"type": "string"},
+        "password":        {"type": "string"},
+        "avatar": {"type": "string"}
+    }
 }
 
-def test_create_user_schema():
-    payload = {"name": "Alice", "job": "QA Engineer"}
-    response = requests.post(f"{BASE_URL}/users", json=payload)
+def test_create_user_schema(base_url):
+    payload = {"name": "Alice", "email": "alice@gmail.com", "password": "password123", "avatar": "https://example.com/avatar.jpg"}
+    response = requests.post(f"{base_url}/v1/users", json=payload)
 
     assert response.status_code == 201
     try:
